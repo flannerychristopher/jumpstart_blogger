@@ -20,6 +20,7 @@
 <h3>Comments (<%= @article.comments.size %>)</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
 
-<%= link_to "delete article", article_path(@article), method: :delete, data: {confirm: "really delete this article?"} %>
-
-<%= link_to "edit article", edit_article_path(@article) %>
+<% if logged_in? %>
+  <%= link_to "delete article", article_path(@article), method: :delete, data: {confirm: "really delete this article?"} %>
+  <%= link_to "edit article", edit_article_path(@article) %>
+<% end %>
